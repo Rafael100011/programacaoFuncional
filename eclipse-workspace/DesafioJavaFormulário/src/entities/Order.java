@@ -10,7 +10,7 @@ import enums.OrderStatus;
 public class Order {
 	private Date moment;
 	private OrderStatus status;
-	private List<OrderItem> item = new ArrayList<>();
+	private List<OrderItem> items = new ArrayList<>();
 	public Order() {
 	}
 	public Order(Date moment,OrderStatus status) {
@@ -30,15 +30,23 @@ public class Order {
 		this.status = status;
 	}
 	public List<OrderItem> getLis() {
-		return item;
+		return items;
 	}
 	
 	
 	public void addItem(OrderItem item) {
-		this.item.add(item);
+		this.items.add(item);
 	}
 	public void removeItem(OrderItem item) {
-		this.item.remove(item);
+		this.items.remove(item);
+	}
+	
+	public double total() {
+		double sum = 0.0;
+		for(OrderItem it: items) {
+			sum += it.getPrice();
+		}
+		return sum;
 	}
 	
 	

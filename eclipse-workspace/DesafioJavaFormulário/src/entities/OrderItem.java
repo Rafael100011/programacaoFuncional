@@ -6,7 +6,7 @@ import java.util.List;
 public class OrderItem {
 	private Integer quantity;
 	private Double price;
-	private List<Product> product = new ArrayList<>();
+	private Product product;
 	public OrderItem() {
 	}
 	
@@ -31,8 +31,18 @@ public class OrderItem {
 		this.price = price;
 	}
 	
-	public Double subTotal() {
-		return quantity * price;
+	
+	public Product getProduct() {
+		return product;
 	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Double subTotal() {
+		return price *quantity;
+	}
+	
 	
 }

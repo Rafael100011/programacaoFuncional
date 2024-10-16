@@ -1,8 +1,5 @@
 package entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Product {
 	private String name;
 	private Double price;
@@ -29,6 +26,9 @@ public class Product {
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	public String toString() {
+		return name+", "+ price;
 	}
 	
 }

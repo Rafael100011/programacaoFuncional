@@ -46,12 +46,11 @@ public class Accont {
 			this.limiteSaque = limiteSaque;
 		}
 		
-		public Double deposit(Double quantia) {
+		public void  deposit(Double quantia) {
 			 saldo = saldo + quantia;
-			 return saldo;
 		}
 		
-		public Double saque(Double quantia) throws DomainException{
+		public void saque(Double quantia) throws DomainException{
 			if (quantia > limiteSaque ) {
 				throw new DomainException("Error! quantia maior que Limite de Saque: DomainExcetion");
 			}
@@ -59,7 +58,6 @@ public class Accont {
 				throw new DomainException("Error! Você não tem saldo suficiente: DomainException");
 			}else {
 			saldo = saldo - quantia;
-			return saldo;
 		}
 		}
 

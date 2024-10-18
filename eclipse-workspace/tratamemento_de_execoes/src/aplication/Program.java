@@ -19,17 +19,18 @@ public class Program {
 			sc.nextLine();
 			String name = sc.nextLine();
 			System.out.print("Deposito inicial: ");
-			Double quantia= sc.nextDouble();
+			Double saldo= sc.nextDouble();
 			System.out.print("Limite de saque: ");
 			Double limiteSaque = sc.nextDouble();
 			
-			Accont accont = new Accont(numero,name,quantia,limiteSaque);
+			Accont accont = new Accont(numero,name,saldo,limiteSaque);
 			
 			System.out.println();
 			
 			System.out.print("Insira uma quantia para saque: ");
 			Double quantia2 = sc.nextDouble();
-			System.out.print("Novo saldo: "+ accont.saque(quantia2));
+			accont.saque(quantia2);
+			System.out.print("Novo saldo: "+accont.getSaldo());
 		}
 		catch(DomainException p) {
 			System.out.println(p);

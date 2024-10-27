@@ -45,9 +45,14 @@ public class Program {
 			//usado para comparar os dados.
 			Comparator<String> comp = (x1,x2) -> x1.toUpperCase().compareTo(x2.toUpperCase()); 
 			
-			//sorted serve para listar o dados em order crescente. e ser usar como parâmentro sorted(comp.reversed()) vai aparecer na order descrecente.
+			//sorted serve para listar o dados em order crescente. Se usar como parâmentro sorted(comp.reversed()) vai aparecer na order descrecente.
 			
-			List<String> sp = list.stream().filter(x -> x.getSalary() > sla).map(p -> p.getEmail()).sorted(comp).collect(Collectors.toList());
+			List<String> em = list.stream().filter(x -> x.getSalary() > sla).map(p -> p.getEmail()).sorted(comp).collect(Collectors.toList());
+			
+			//logo depois de pegar o nome do cliente, uso o charAt para pegar a primeira letra do nome do mesmo e testar se começa com 'M'
+			//se sim, uso reduce para somar os salarios
+			
+			Double sun = list.stream().filter(x -> x.getName().charAt(0)== 'M').map(p -> p.getSalary()).reduce(0.0,(x,y) -> x + y);
 			
 			
 			System.out.println("Email o people whose salary is more than "+ sla+":");
@@ -55,8 +60,8 @@ public class Program {
 			
 			
 			
-			sp.forEach(System.out::println);
-			
+			em.forEach(System.out::println);
+			System.out.println("Sun of salary of people whose name starts with 'M': "+ sun);
 			
 			
 		}
